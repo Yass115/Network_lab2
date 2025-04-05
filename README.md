@@ -30,3 +30,11 @@ Un VLAN fonctionne en attribuant un identifiant unique (VLAN ID) aux trames rés
     * Il utilise un protocole de marquage des trames comme IEEE 802.1Q, qui ajoute un tag VLAN à chaque trame pour indiquer son appartenance.
 
     * Les trunks sont souvent utilisés pour interconnecter plusieurs commutateurs ou pour relier un commutateur à un routeur.
+
+
+
+
+## Premier exercice du laboratoire
+
+![Exercice 2](vlan1.png)
+![Exercice 2](vlan11.png)
