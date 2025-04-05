@@ -13,3 +13,7 @@ Vous faites la meme chose pour les autres hosts.
 
 Pour les switchs nous allons sur database vlan et nous créeons nos vlans (en leur donnant un nom et un chiffre, dans mon cas vlanA(2) et VlanB(3) le numéro 1 est reservé au Vlan administratif)
 ![image](https://github.com/user-attachments/assets/f4d60840-ed89-4d1b-bab6-82e4f029349c)
+
+Ensuite il nous suffit de sélectionner l'un des ports relié à l'un des hosts et de définir dans quel vlan on voudrait mettre ce port et sur quel mode (trunk ou access)
+![image](https://github.com/user-attachments/assets/0e9dddbc-f47b-4d36-b9da-808868d6e966)
+
