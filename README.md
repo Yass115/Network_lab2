@@ -39,9 +39,10 @@ Un VLAN fonctionne en attribuant un identifiant unique (VLAN ID) aux trames rés
 ![Exercice 1](vlan1.png)
 ![Exercice 1](vlan11.png)
 
-### Configuration 1
+### Cas 1
+
+![Exercice 1](conf1.png)
+
 Pour ce qui est de la première configuration nous observons 3 switchs, la première et la deuxième communiquent avec du trunking et la deuxième et la troisième communiquent avec une connexion normale (mode access)
 donc si l'information rentre dans le premier switch elle continue son chemin jusqu'au 2e switch sans problème (que ce soit pour le Vlan A ou B) car les deux premiers switch sont liés en mode trunk (ce qui veut dire qu'un tag a été ajouté dans la trame pour indiquer s cette dernière est à destination du vlan A ou B) par contre rien ne pourra passer dans le 3e switch car les ports ne font pas partie du meme vlan (donc meme si les 2 derniers switchs sont liés en mode access si les ports ne font pas partie du meme vlan alors aucune information ne sera échangé).
 Voici à quoi devrait ressembler la configuration (j'ai ajouté des hosts afin de pouvoir tester le passage de l'information)
-
-![Exercice 1](conf1.png)
