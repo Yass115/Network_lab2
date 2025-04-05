@@ -17,3 +17,4 @@ Pour les switchs nous allons sur database vlan et nous créeons nos vlans (en le
 Ensuite il nous suffit de sélectionner l'un des ports relié à l'un des hosts et de définir dans quel vlan on voudrait mettre ce port et sur quel mode (trunk ou access)
 ![image](https://github.com/user-attachments/assets/0e9dddbc-f47b-4d36-b9da-808868d6e966)
 
+C'est tout pour la partie configuration, vous n'avez pas besoin d'autre choses à part répeter la procédure pour tous les hosts et switchs et changer les modes et liaisons en fonction des cas donnés dans les exercices.
