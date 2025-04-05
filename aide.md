@@ -6,3 +6,10 @@ après avoir cliqué sur le premier host vous tomberez normalement sur la page d
 ensuite choisissez une adresse ip et un masque (pour des raisons d'efficacité j'ai juste choisi l'adresse 192.168.0.6 et un masque /24 donc 255.255.255.0)
 
 ![Exercice 1](hostconfig.png)
+
+Vous faites la meme chose pour les autres hosts.
+
+## Les switchs
+
+Pour les switchs nous allons sur database vlan et nous créeons nos vlans (en leur donnant un nom et un chiffre, dans mon cas vlanA(2) et VlanB(3) le numéro 1 est reservé au Vlan administratif)
+![image](https://github.com/user-attachments/assets/f4d60840-ed89-4d1b-bab6-82e4f029349c)
