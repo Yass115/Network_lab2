@@ -1,4 +1,6 @@
-
+schema avec un switch 3 ordi qui sont relies a 3 routeurs et un de ces 3 routeurs il est relié a un serveur internet 
+Il te demmande d'escrire la config pour le routeur pour avoir pc1 qui appartien a vlan 10 pc2 vlan 20 et pc3 a vlan 30, apres il dit que il faut que tout cds ordinateurs doivient avoir acces au service internet , 
+ils ne doivient pas communiquer entre eux et il faut choisir le chemin plus rapide qu'il vous indiquera donc.
 Parfait, je vais t’aider à construire **l’architecture complète**, puis te donner les **commandes de configuration** pour que ton labo fonctionne parfaitement, selon ces contraintes :
 
 ---
