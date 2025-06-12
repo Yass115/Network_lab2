@@ -176,4 +176,101 @@ ping autre PC        ❌ (interdiction par ACL)
 
 ---
 
-Souhaites-tu que je te génère **un fichier Cisco Packet Tracer (.pkt)** ou un **plan visuel du schéma** ?
+# NAT
+
+Parfait ! Faisons du **NAT (Network Address Translation)** sur Cisco Packet Tracer. C’est indispensable quand tu veux que plusieurs PC dans un réseau local (LAN) accèdent à Internet à travers **une seule IP publique** (celle du routeur connecté à Internet ou à ton "serveur").
+
+---
+
+## 🎯 Objectif :
+
+Mettre en place du **NAT statique ou dynamique** pour permettre à tes PC (réseau privé) d'accéder à Internet (réseau public).
+
+---
+
+## 🧱 TOPOLOGIE DE BASE
+
+```
+[PC1 - 192.168.1.2]      \
+[PC2 - 192.168.1.3] ---> [SW] ---> [ROUTEUR] ---> [SERVER INTERNET - 8.8.8.8]
+```
+
+### Sur le routeur :
+
+* Interface LAN : `Gig0/0` → `192.168.1.1/24`
+* Interface WAN : `Gig0/1` → `200.0.0.1/30` (simule une IP publique)
+
+---
+
+## ✅ 1. CONFIGURATION DES INTERFACES DU ROUTEUR
+
+```bash
+enable
+configure terminal
+
+interface gig0/0
+ip address 192.168.1.1 255.255.255.0
+ip nat inside
+no shutdown
+exit
+
+interface gig0/1
+ip address 200.0.0.1 255.255.255.252
+ip nat outside
+no shutdown
+exit
+```
+
+---
+
+## ✅ 2. CRÉER UNE LISTE D’ACCÈS POUR SPÉCIFIER LES IPS LOCALES À TRADUIRE
+
+```bash
+access-list 1 permit 192.168.1.0 0.0.0.255
+```
+
+---
+
+## ✅ 3. CONFIGURATION DU **NAT DYNAMIQUE** (PAT : un à plusieurs)
+
+```bash
+ip nat inside source list 1 interface gig0/1 overload
+```
+
+---
+
+## ✅ 4. CONFIGURATION DES PC
+
+Chaque PC doit avoir :
+
+* IP : `192.168.1.x`
+* Subnet mask : `255.255.255.0`
+* Gateway : `192.168.1.1`
+* DNS : `8.8.8.8` (ou IP de ton serveur)
+
+---
+
+## ✅ 5. TESTER
+
+Sur un PC :
+
+* Ouvre **Command Prompt** → `ping 8.8.8.8`
+* Tu devrais voir les réponses ✅
+
+---
+
+## ✅ 6. POUR NAT STATIQUE (ex : accès depuis l'extérieur vers un serveur local)
+
+```bash
+ip nat inside source static 192.168.1.10 200.0.0.2
+```
+
+> Cela signifie que toute demande sur `200.0.0.2` sera redirigée vers le PC local `192.168.1.10`.
+
+---
+
+## 📌 POUR ENREGISTRER
+
+```bash
+write memory
+`---
